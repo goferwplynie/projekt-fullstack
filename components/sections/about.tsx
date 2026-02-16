@@ -23,7 +23,7 @@ export function AboutSection({ personal }: AboutSectionProps) {
             <CardContent className="flex flex-col md:flex-row gap-8 items-start">
               {/* Avatar placeholder */}
               <div className="shrink-0 mx-auto md:mx-0">
-                <div className="size-32 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-4xl font-bold text-primary">
+                <div className="size-32 rounded-xl bg-linear-to-br from-primary/20 to-primary/5 flex items-center justify-center text-4xl font-bold text-primary">
                   {personal.name.split(" ").map((n) => n[0]).join("")}
                 </div>
               </div>

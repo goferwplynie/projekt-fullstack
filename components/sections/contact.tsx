@@ -36,20 +36,21 @@ import {
 
 // ── Zod schemas with regex and refine ────────────────────────────────────────
 
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// Only allow letters, spaces, hyphens, and apostrophes in names
+const nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ' -]+$/;
 
 const step1Schema = z.object({
   name: z
     .string()
     .min(2, "Name must be at least 2 characters.")
     .max(50, "Name must be at most 50 characters.")
+    .regex(nameRegex, "Name can only contain letters, spaces, hyphens, and apostrophes.")
     .refine(
       (val) => val.trim().length > 0,
       "Name cannot be only whitespace."
     ),
   email: z
-    .string()
-    .regex(emailRegex, "Please enter a valid email address."),
+    .email("Please enter a valid email address."),
 });
 
 const subjectOptions: { value: ContactSubject; label: string }[] = [
@@ -75,7 +76,7 @@ const step2Schema = z.object({
     ),
 });
 
-const fullSchema = step1Schema.merge(step2Schema);
+const fullSchema = step1Schema.extend(step2Schema.shape);
 
 type FormData = z.infer<typeof fullSchema>;
 
@@ -331,7 +332,7 @@ function ContactFormInner() {
                       id="contact-message"
                       placeholder="Tell me about your project, idea, or question..."
                       rows={5}
-                      className="min-h-[120px] resize-none"
+                      className="min-h-30 resize-none"
                       aria-invalid={fieldState.invalid}
                     />
                     <FieldDescription>

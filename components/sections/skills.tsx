@@ -64,7 +64,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
                 <CardTitle>Proficiency Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                <ChartContainer config={chartConfig} className="min-h-[280px] w-full">
+                <ChartContainer config={chartConfig} className="min-h-70 w-full">
                   <RadarChart data={radarData}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="category" tick={{ fontSize: 12 }} />

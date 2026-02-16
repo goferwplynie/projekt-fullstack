@@ -116,7 +116,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               >
                 {/* Hover overlay reveal using group */}
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl pointer-events-none" />
                 </div>
 
                 <CardHeader>

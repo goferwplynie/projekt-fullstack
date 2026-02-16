@@ -8,23 +8,15 @@ import type {
   ExperienceEntry,
 } from "@/types/portfolio";
 
-// ── Type predicate ───────────────────────────────────────────────────────────
-// Narrows a Project to FeaturedProject using a type guard
-
 export function isFeaturedProject(project: Project): project is FeaturedProject {
   return project.featured === true && typeof project.longDescription === "string";
 }
-
-// ── Type predicate for experience type ───────────────────────────────────────
 
 export function isWorkExperience(
   entry: ExperienceEntry
 ): entry is ExperienceEntry & { type: "work" } {
   return entry.type === "work";
 }
-
-// ── Function overloads ───────────────────────────────────────────────────────
-// scrollToSection can accept either a SectionId or an HTMLElement
 
 export function scrollToSection(target: SectionId): void;
 export function scrollToSection(target: HTMLElement): void;
@@ -38,8 +30,6 @@ export function scrollToSection(target: SectionId | HTMLElement): void {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
-
-// ── Function overloads for formatting dates ──────────────────────────────────
 
 export function formatDate(date: string): string;
 export function formatDate(date: string, format: "short"): string;
@@ -62,9 +52,6 @@ export function formatDate(date: string, format?: "short" | "long"): string {
   }
   return `${monthNames[monthIndex]} ${year}`;
 }
-
-// ── Utility: Group skills by category ────────────────────────────────────────
-// Uses Record<SkillCategory, Skill[]>
 
 export function groupSkillsByCategory(skills: Skill[]): SkillsByCategory {
   const categories: SkillCategory[] = ["languages", "frameworks", "tools", "databases", "other"];

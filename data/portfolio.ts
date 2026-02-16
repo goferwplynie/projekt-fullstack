@@ -5,9 +5,6 @@ import type {
   ExperienceEntry,
 } from "@/types/portfolio";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PORTFOLIO DATA - Edit these arrays to customize your portfolio!
-// ─────────────────────────────────────────────────────────────────────────────
 
 const skills: Skill[] = [
   // Languages
@@ -146,10 +143,6 @@ const experience: ExperienceEntry[] = [
     type: "education",
   },
 ];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// FULL CONFIG - Assembled from the arrays above
-// ─────────────────────────────────────────────────────────────────────────────
 
 export const portfolioConfig: PortfolioConfig = {
   personal: {

@@ -1,7 +1,3 @@
-// ── Generic DataList component ───────────────────────────────────────────────
-// This is a generic component that renders a list of any typed items.
-// Satisfies: "Utworzenie generycznego komponentu*"
-
 import { cn } from "@/lib/utils";
 import type { DataListProps } from "@/types/portfolio";
 
